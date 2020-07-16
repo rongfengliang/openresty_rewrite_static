@@ -1,0 +1,1 @@
+# openresty + nginx rewrite static page learning
