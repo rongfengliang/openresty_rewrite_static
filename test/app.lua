@@ -9,7 +9,7 @@ if n ==0 then
   print("not sub")
 end
 
-local m, err = ngx.re.match(origin_url,[[^(.*?)(.html)?\/(\d)$]])
+local m, err = ngx.re.match(origin_url,[[index]])
 if not m  then 
     print("not match")
 end
