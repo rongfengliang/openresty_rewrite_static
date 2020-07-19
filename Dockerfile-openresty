@@ -1,0 +1,7 @@
+FROM openresty/openresty:alpine
+ENV PATH=$PATH:/app
+COPY --from=dalongrong/gor /app/gor /app/gor
+COPY --from=ochinchina/supervisord:latest /usr/local/bin/supervisord /usr/local/bin/supervisord
+EXPOSE 9001 8080 80
+COPY supervisor.conf /etc/supervisor.conf
+CMD ["/usr/local/bin/supervisord"]

@@ -11,11 +11,20 @@ services:
       - "MINIO_ACCESS_KEY=minio"
       - "MINIO_SECRET_KEY=minio123"
   api:
-    image: openresty/openresty:alpine
+    image: dalongrong/openresty-gor
+    build: 
+      dockerfile: ./Dockerfile-openresty
+      context: ./
+    privileged: true
+    cap_add: 
+    - ALL
     volumes:
+    - "./supervisor.conf:/etc/supervisord.conf"
     - "./nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf"
     - "./demoapps:/opt/demoapps"
+    - "./capture:/app/capture"
     ports:
     - "80:80"
     - "8080:8080"
+    - "9001:9001"
 
