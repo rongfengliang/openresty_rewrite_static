@@ -1,2 +1,4 @@
 data
 capture
+logs/error-test.log
+logs/access-test.log

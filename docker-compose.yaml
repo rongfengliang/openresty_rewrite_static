@@ -23,6 +23,8 @@ services:
     - "./nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf"
     - "./demoapps:/opt/demoapps"
     - "./capture:/app/capture"
+    - "./logs/access-test.log:/usr/local/openresty/nginx/logs/access-test.log"
+    - "./logs/error-test.log:/usr/local/openresty/nginx/logs/error-test.log"
     ports:
     - "80:80"
     - "8080:8080"
