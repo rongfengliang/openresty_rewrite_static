@@ -1,5 +1,9 @@
 FROM openresty/openresty:alpine
 ENV PATH=$PATH:/app
+RUN  /bin/sed -i 's,http://dl-cdn.alpinelinux.org,https://mirrors.aliyun.com,g' /etc/apk/repositories
+ENV TZ Asia/Shanghai
+RUN apk add --update --no-cache \
+    tzdata && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 COPY --from=dalongrong/gor /app/gor /app/gor
 COPY --from=ochinchina/supervisord:latest /usr/local/bin/supervisord /usr/local/bin/supervisord
 EXPOSE 9001 8080 80

@@ -11,7 +11,7 @@ services:
       - "MINIO_ACCESS_KEY=minio"
       - "MINIO_SECRET_KEY=minio123"
   api:
-    image: dalongrong/openresty-gor
+    image: dalongrong/openresty-gor:s3
     build: 
       dockerfile: ./Dockerfile-openresty
       context: ./
